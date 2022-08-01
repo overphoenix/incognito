@@ -167,7 +167,6 @@ class Constants {
         const val DATE_FORMAT_PATTERN = "HH:mm:ss"
 
         // constants generated as part of BuildConfig.FLAVORS (playstore/fdroid/website)
-        const val FLAVOR_PLAY = "play"
         const val FLAVOR_FDROID = "fdroid"
         const val FLAVOR_WEBSITE = "website"
 
@@ -239,8 +238,5 @@ class Constants {
         const val TIME_FORMAT_1 = "HH:mm:ss"
         const val TIME_FORMAT_2 = "yy.MM (dd)"
         const val TIME_FORMAT_3 = "dd MMMM yyyy, HH:mm:ss"
-
-        // play services package name
-        const val PKG_NAME_PLAY_STORE = "com.android.vending"
     }
 }

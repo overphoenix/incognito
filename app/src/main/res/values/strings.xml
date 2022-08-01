@@ -146,23 +146,7 @@
     protected
     </string>
 
-    <string name="status_protected_with_tor">protected with tor</string>
-
     <string name="status_protected_with_private_dns">protected with private dns</string>
-
-    <string name="status_protected_with_tor_private_dns">protected with tor &amp; private dns</string>
-
-    <string name="status_protected_with_proxy_private_dns">protected with proxy &amp; private dns</string>
-
-    <string name="status_protected_with_socks5_private_dns">protected with socks5 &amp; private dns</string>
-
-    <string name="status_protected_with_http_private_dns">protected with http proxy &amp; private dns</string>
-
-    <string name="status_protected_with_socks5">protected with socks proxy</string>
-
-    <string name="status_protected_with_http">protected with http proxy</string>
-
-    <string name="status_protected_with_proxy">protected with proxy</string>
 
     <string name="explanation_protected" description="Expanded form of status_protected">
     Your connection is protected from DNS attacks.
@@ -569,62 +553,7 @@
     <string name="settings_allow_bypass_lockdown_desc">"Disabled. Settings->VPN->Block connections without VPN" is enabled for Incognito, enabling the feature will block the internet connection of the apps which are trying to bypass the VPN.</string>
     <string name="settings_lock_down_mode_desc">Cannot allow bypass, or setup proxies when VPN is running in lockdown mode. <u>Go to VPN settings</u>.</string>
 
-    <string name="settings_proxy_header">proxy</string>
-    <string name="settings_socks5_heading">Setup SOCKS5 (TCP) Proxy</string>
-    <string name="settings_socks5_desc">Forward connections to SOCKS5 endpoint.</string>
-    <string name="settings_https_heading">Setup HTTP(S) Proxy</string>
-    <string name="settings_https_desc">This setting is only a recommendation and it is possible that apps will ignore it. Apps using HTTP(S) proxy will bypass both Firewall and DNS rules.</string>
-
-    <string name="orbot">Orbot</string>
-    <string name="orbot_socks5">TCP-only Proxy</string>
-    <string name="orbot_socks5_desc">Forwards all TCP connections to Orbot.</string>
-    <string name="orbot_http">HTTP Proxy</string>
-    <string name="orbot_http_desc">Recommends that apps use Orbot\'s HTTP proxy.</string>
-    <string name="orbot_both">TCP + HTTP Proxy</string>
-    <string name="orbot_both_desc">All of the above.</string>
-    <string name="orbot_none">None (default)</string>
-    <string name="orbot_none_desc">None of the above.</string>
-
-    <string name="orbot_bs_status_1">Forwarding TCP connections to Orbot.</string>
-    <string name="orbot_bs_status_2">HTTP Proxy is set (apps may ignore it).</string>
-    <string name="orbot_bs_status_3">Forwarding TCP to Orbot, HTTP Proxy also set.</string>
-    <string name="orbot_bs_status_4">One-click Tor-as-a-Proxy (Orbot) setup.</string>
-
-    <string name="orbot_app_issue">Could not launch Orbot. Is it installed?</string>
-    <string name="orbot_bs_status_trying_connect">Setting up Orbot…</string>
-
-    <string name="orbot_stop_dialog_title">Manually Stop Orbot</string>
-    <string name="orbot_stop_dialog_message">Incognito has stopped forwarding connections to Orbot, but Orbot maybe running in the background.</string>
-    <string name="orbot_stop_dialog_negative">Stop Orbot</string>
-    <string name="orbot_stop_dialog_positive">Dismiss</string>
-
-    <string name="orbot_title">Orbot and Proxies</string>
-    <string name="orbot_explanation">
-            Orbot is a free proxy app that empowers other apps to use the Internet more &lt;u>securely&lt;/u>.
-            \nOrbot uses &lt;u>Tor&lt;/u> to encrypt your Internet traffic which helps you &lt;u>bypass censorship&lt;/u> and defend against forms of &lt;u>network surveillance&lt;/u> that threaten personal freedom and privacy.
-            \n&lt;u>TCP Proxy&lt;/u>: Incognito forwards only TCP connections of all but excluded apps to Orbot.
-        \n&lt;u>HTTP Proxy&lt;/u>: Incognito &lt;i>sets&lt;/i> HTTP proxy but does not enforce that the apps use it. Usually, browsers like Chrome and Firefox do use it. Apps using HTTP(S) proxy will bypass both Firewall and DNS rules.
-            </string>
-    <string name="orbot_bs_positive_start">start</string>
-    <string name="orbot_bs_positive_stop">stop</string>
-    <string name="orbot_bs_negative">cancel</string>
-
-    <string name="orbot_install_dialog_title">Install Orbot?</string>
-    <string name="orbot_install_dialog_message">Orbot brings the features and functionality of Tor to Android.</string>
-    <string name="orbot_install_dialog_positive">Install</string>
-    <string name="orbot_install_dialog_source_play">Install from playstore</string>
-    <string name="orbot_install_dialog_source_fdroid">Install from fdroid</string>
-    <string name="orbot_install_dialog_source_web">Install from website</string>
-    <string name="orbot_install_dialog_negative">Dismiss</string>
-    <string name="orbot_install_dialog_neutral">website</string>
-    <string name="orbot_website_link">https://guardianproject.info/apps/org.torproject.android/</string>
-    <string name="orbot_download_link_website">https://github.com/guardianproject/orbot/releases</string>
-    <string name="orbot_install_activity_error">Something went wrong, try after sometime</string>
-
-    <string name="settings_orbot_heading">Setup Orbot</string>
     <string name="settings_orbot_header">Orbot\t\u276F</string>
-    <string name="settings_orbot_desc">Orbot in non-vpn mode with HTTPS/SOCKS5.</string>
-    <string name="settings_orbot_install_desc">Tap here to install Orbot</string>
 
     <string name="settings_orbot_socks5_heading">Orbot one touch setup - SOCKS5</string>
     <string name="settings_orbot_socks5_desc">Enable Orbot in non-vpn mode. Touch on Orbot icon to setup.</string>
@@ -788,7 +717,6 @@
     <string name="hsf_start_dialog_negative">Dismiss</string>
 
     <string name="hsf_whats_new_chip_text">What\'s new</string>
-    <string name="hsf_proxy_chip_text">Proxy active</string>
     <string name="hsf_blocklist_chip_text">%1$s blocklists configured</string>
     <string name="hsf_blocklist_chip_text_no_blocklist">Incognito in-use</string>
     <string name="hsf_blocklist_chip_text_no_data">Enable Incognito+</string>

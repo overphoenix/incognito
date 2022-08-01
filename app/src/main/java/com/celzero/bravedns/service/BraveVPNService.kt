@@ -136,7 +136,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
     private val rand: Random = Random
 
     private val appConfig by inject<AppConfig>()
-    private val orbotHelper by inject<OrbotHelper>()
     private val persistentState by inject<PersistentState>()
     private val refreshDatabase by inject<RefreshDatabase>()
     private val netLogTracker by inject<NetLogTracker>()
@@ -144,7 +143,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
     @Volatile private var isAccessibilityServiceFunctional: Boolean = false
     @Volatile var accessibilityHearbeatTimestamp: Long = INIT_TIME_MS
     @Volatile var activeNetworkHeartbeatTimestamp: Long = INIT_TIME_MS
-    var settingUpOrbot: AtomicBoolean = AtomicBoolean(false)
 
     private lateinit var notificationManager: NotificationManager
     private lateinit var activityManager: ActivityManager
@@ -153,7 +151,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
     private var keyguardManager: KeyguardManager? = null
 
     private lateinit var appInfoObserver: Observer<Collection<AppInfo>>
-    private lateinit var orbotStartStatusObserver: Observer<Boolean>
 
     private var excludedApps: MutableSet<String> = mutableSetOf()
 
@@ -298,10 +295,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
             val appStatus = FirewallManager.appStatus(uid)
             val connectionStatus = FirewallManager.connectionStatus(uid)
 
-            if (allowOrbot(uid)) {
-                return FirewallRuleset.RULE9B
-            }
-
             if (unknownAppBlocked(uid)) {
                 return FirewallRuleset.RULE5
             }
@@ -408,11 +401,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
         }
 
         return persistentState.blockHttpConnections
-    }
-
-    private fun allowOrbot(uid: Int): Boolean {
-        return settingUpOrbot.get() && OrbotHelper.ORBOT_PACKAGE_NAME == FirewallManager.getPackageNameByUid(
-            uid)
     }
 
     private fun dnsProxied(port: Int): Boolean {
@@ -801,12 +789,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
         // re-hydrate exclude-apps incase it has changed in the interim
         excludedApps = FirewallManager.getExcludedApps()
 
-        if (isAtleastQ()) {
-            if (appConfig.canEnableProxy() && appConfig.isCustomHttpProxyEnabled()) {
-                getHttpProxyInfo()?.let { builder.setHttpProxy(it) }
-            }
-        }
-
         try {
             if (!VpnController.isVpnLockdown() && isAppPaused()) {
                 val nonFirewalledApps = FirewallManager.getNonFirewalledAppsPackageNames()
@@ -835,24 +817,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
                     Log.w(LOG_TAG_VPN, "vpn is lockdown, ignoring exclude-apps list")
                 }
                 builder = builder.addDisallowedApplication(this.packageName)
-            }
-            if (appConfig.isCustomSocks5Enabled()) {
-                // For Socks5 if there is a app selected, add that app in excluded list
-                val socks5ProxyEndpoint = appConfig.getConnectedSocks5Proxy()
-                val appName = socks5ProxyEndpoint?.proxyAppName
-                Log.i(LOG_TAG_VPN,
-                      "Proxy mode - Socks5 is selected - $socks5ProxyEndpoint, with app name - $appName")
-                if (appName?.equals(getString(
-                        R.string.settings_app_list_default_app)) == false && isExcludePossible(
-                        appName, getString(R.string.socks5_proxy_toast_parameter))) {
-                    builder = builder.addDisallowedApplication(appName)
-                }
-            }
-
-            if (appConfig.isOrbotProxyEnabled() && isExcludePossible(getString(R.string.orbot),
-                                                                     getString(
-                                                                         R.string.orbot_toast_parameter))) {
-                builder = builder.addDisallowedApplication(OrbotHelper.ORBOT_PACKAGE_NAME)
             }
 
             if (appConfig.isDnsProxyActive()) {
@@ -915,8 +879,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
         appInfoObserver = makeAppInfoObserver()
         FirewallManager.getApplistObserver().observeForever(appInfoObserver)
         persistentState.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
-        orbotStartStatusObserver = makeOrbotStartStatusObserver()
-        persistentState.orbotConnectionStatus.observeForever(orbotStartStatusObserver)
         Log.i(LOG_TAG_VPN, "observe pref and app list changes")
     }
 
@@ -941,12 +903,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
                                                       appConfig.getInternetProtocol(),
                                                       appConfig.getProtocolTranslationMode()))
             }
-        }
-    }
-
-    private fun makeOrbotStartStatusObserver(): Observer<Boolean> {
-        return Observer<Boolean> {
-            settingUpOrbot.set(it)
         }
     }
 
@@ -1074,8 +1030,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
             // Initialize the value whenever the vpn is started.
             accessibilityHearbeatTimestamp = INIT_TIME_MS
 
-            startOrbotAsyncIfNeeded()
-
             VpnController.mutex.withLock {
                 // if service is up (aka connectionMonitor not null)
                 // then simply update the existing tunnel
@@ -1122,20 +1076,8 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
         return Service.START_REDELIVER_INTENT
     }
 
-    private fun startOrbotAsyncIfNeeded() {
-        if (!appConfig.isOrbotProxyEnabled()) return
-
-        io("startOrbot") {
-            orbotHelper.startOrbot(appConfig.getProxyType())
-        }
-    }
-
     private fun unobserveAppInfos() {
         FirewallManager.getApplistObserver().removeObserver(appInfoObserver)
-    }
-
-    private fun unobserveOrbotStartStatus() {
-        persistentState.orbotConnectionStatus.removeObserver(orbotStartStatusObserver)
     }
 
     private fun registerAccessibilityServiceState() {
@@ -1541,7 +1483,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
 
         try {
             unregisterAccessibilityServiceState()
-            orbotHelper.unregisterReceiver()
         } catch (e: IllegalArgumentException) {
             Log.w(LOG_TAG_VPN, "Unregister receiver error: ${e.message}")
         }
@@ -1550,7 +1491,6 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
         updateQuickSettingsTile()
         stopPauseTimer()
 
-        unobserveOrbotStartStatus()
         unobserveAppInfos()
         persistentState.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
 

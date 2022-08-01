@@ -28,7 +28,6 @@ import com.celzero.bravedns.database.AppInfoRepository
 import com.celzero.bravedns.ui.HomeScreenActivity.GlobalVariable.DEBUG
 import com.celzero.bravedns.util.AndroidUidConfig
 import com.celzero.bravedns.util.LoggerConstants.Companion.LOG_TAG_FIREWALL
-import com.celzero.bravedns.util.OrbotHelper
 import com.google.common.cache.Cache
 import com.google.common.cache.CacheBuilder
 import com.google.common.collect.HashMultimap
@@ -268,11 +267,6 @@ object FirewallManager : KoinComponent {
 
     fun getNonFirewalledAppsPackageNames(): List<AppInfo> {
         return getAppInfosLocked().filter { it.firewallStatus == FirewallStatus.ALLOW.id }
-    }
-
-    // TODO: Use the package-manager API instead
-    fun isOrbotInstalled(): Boolean {
-        return getAppInfosLocked().any { it.packageInfo == OrbotHelper.ORBOT_PACKAGE_NAME }
     }
 
     fun hasUid(uid: Int): Boolean {

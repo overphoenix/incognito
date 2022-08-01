@@ -28,8 +28,6 @@ import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.service.VpnController
 import com.celzero.bravedns.util.Constants
 import com.celzero.bravedns.util.LoggerConstants.Companion.LOG_TAG_VPN
-import com.celzero.bravedns.util.OrbotHelper
-import com.celzero.bravedns.util.OrbotHelper.Companion.NOTIF_CHANNEL_ID_PROXY_ALERTS
 import com.celzero.bravedns.util.Utilities
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -39,7 +37,6 @@ import org.koin.core.component.inject
 
 class NotificationActionReceiver : BroadcastReceiver(), KoinComponent {
     private val appConfig by inject<AppConfig>()
-    private val orbotHelper by inject<OrbotHelper>()
 
     override fun onReceive(context: Context, intent: Intent) {
         // TODO - Move the NOTIFICATION_ACTIONs value to enum
@@ -47,10 +44,6 @@ class NotificationActionReceiver : BroadcastReceiver(), KoinComponent {
         Log.i(LOG_TAG_VPN, "Received notification action: $action")
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         when (action) {
-            OrbotHelper.ORBOT_NOTIFICATION_ACTION_TEXT -> {
-                orbotHelper.openOrbotApp()
-                manager.cancel(NOTIF_CHANNEL_ID_PROXY_ALERTS, OrbotHelper.ORBOT_SERVICE_ID)
-            }
             Constants.NOTIF_ACTION_PAUSE_VPN -> {
                 pauseApp(context)
             }

@@ -56,7 +56,6 @@ import com.celzero.bravedns.ui.HomeScreenActivity.GlobalVariable.DEBUG
 import com.celzero.bravedns.ui.PauseActivity
 import com.celzero.bravedns.util.Constants.Companion.ACTION_VPN_SETTINGS_INTENT
 import com.celzero.bravedns.util.Constants.Companion.FLAVOR_FDROID
-import com.celzero.bravedns.util.Constants.Companion.FLAVOR_PLAY
 import com.celzero.bravedns.util.Constants.Companion.FLAVOR_WEBSITE
 import com.celzero.bravedns.util.Constants.Companion.INVALID_UID
 import com.celzero.bravedns.util.Constants.Companion.LOCAL_BLOCKLIST_DOWNLOAD_FOLDER_NAME
@@ -490,10 +489,6 @@ class Utilities {
 
         fun isWebsiteFlavour(): Boolean {
             return BuildConfig.FLAVOR == FLAVOR_WEBSITE
-        }
-
-        fun isPlayStoreFlavour(): Boolean {
-            return BuildConfig.FLAVOR == FLAVOR_PLAY
         }
 
         fun getApplicationInfo(context: Context, packageName: String): ApplicationInfo? {

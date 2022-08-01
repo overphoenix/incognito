@@ -25,13 +25,11 @@ import recalibrated.systems.R
 import com.celzero.bravedns.database.*
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.service.VpnController
-import com.celzero.bravedns.ui.HomeScreenActivity.GlobalVariable.DEBUG
 import com.celzero.bravedns.util.InternetProtocol
 import com.celzero.bravedns.util.InternetProtocol.Companion.getInternetProtocol
 import com.celzero.bravedns.util.KnownPorts
 import com.celzero.bravedns.util.KnownPorts.Companion.DNS_PORT
 import com.celzero.bravedns.util.LoggerConstants.Companion.LOG_TAG_VPN
-import com.celzero.bravedns.util.OrbotHelper
 import inet.ipaddr.IPAddressString
 import intra.Listener
 import kotlinx.coroutines.Dispatchers
@@ -65,7 +63,7 @@ class AppConfig internal constructor(private val context: Context,
     }
 
     data class TunnelOptions(val tunDnsMode: TunDnsMode, val tunFirewallMode: TunFirewallMode,
-                             val tunProxyMode: TunProxyMode, val ptMode: ProtoTranslationMode,
+                             val ptMode: ProtoTranslationMode,
                              val blocker: Blocker, val listener: Listener, val fakeDns: String,
                              val preferredEngine: InternetProtocol)
 
@@ -168,82 +166,6 @@ class AppConfig internal constructor(private val context: Context,
 
         fun trapPort(): Boolean {
             return mode == DOH_PORT.mode || mode == DNSCRYPT_PORT.mode || mode == DNSPROXY_PORT.mode
-        }
-    }
-
-    enum class TunProxyMode(val mode: Long) {
-        NONE(Settings.ProxyModeNone),
-        HTTPS(Settings.ProxyModeHTTPS),
-        SOCKS5(Settings.ProxyModeSOCKS5),
-        ORBOT(PROXY_MODE_ORBOT);
-
-        fun isTunProxyOrbot(): Boolean {
-            return mode == ORBOT.mode
-        }
-
-        fun isTunProxySocks5(): Boolean {
-            return mode == SOCKS5.mode
-        }
-
-    }
-
-    // Provider - Custom - SOCKS5, Http proxy setup.
-    // ORBOT - One touch Orbot integration.
-    enum class ProxyProvider {
-        NONE, CUSTOM, ORBOT;
-
-        fun isProxyProviderCustom(): Boolean {
-            return CUSTOM.name == name
-        }
-
-        fun isProxyProviderNone(): Boolean {
-            return NONE.name == name
-        }
-
-        fun isProxyProviderOrbot(): Boolean {
-            return ORBOT.name == name
-        }
-
-        companion object {
-            fun getProxyProvider(name: String): ProxyProvider {
-                return when (name) {
-                    CUSTOM.name -> CUSTOM
-                    ORBOT.name -> ORBOT
-                    else -> NONE
-                }
-            }
-        }
-    }
-
-    // Supported Proxy types
-    enum class ProxyType {
-        NONE, HTTP, SOCKS5, HTTP_SOCKS5;
-
-        fun isProxyTypeHttp(): Boolean {
-            return HTTP.name == name
-        }
-
-        fun isProxyTypeSocks5(): Boolean {
-            return SOCKS5.name == name
-        }
-
-        fun isProxyTypeHttpSocks5(): Boolean {
-            return HTTP_SOCKS5.name == name
-        }
-
-        fun isProxyTypeNone(): Boolean {
-            return NONE.name == name
-        }
-
-        companion object {
-            fun of(name: String): ProxyType {
-                return when (name) {
-                    HTTP.name -> HTTP
-                    SOCKS5.name -> SOCKS5
-                    HTTP_SOCKS5.name -> HTTP_SOCKS5
-                    else -> NONE
-                }
-            }
         }
     }
 
@@ -476,7 +398,7 @@ class AppConfig internal constructor(private val context: Context,
     fun newTunnelOptions(blocker: Blocker, listener: Listener, fakeDns: String,
                          preferredEngine: InternetProtocol,
                          ptMode: ProtoTranslationMode): TunnelOptions {
-        return TunnelOptions(getDnsMode(), getFirewallMode(), getTunProxyMode(), ptMode, blocker,
+        return TunnelOptions(getDnsMode(), getFirewallMode(), ptMode, blocker,
                              listener, fakeDns, preferredEngine)
     }
 
@@ -758,172 +680,12 @@ class AppConfig internal constructor(private val context: Context,
         return getBraveMode().isDnsFirewallMode()
     }
 
-    // -- Proxy Manager --
-
-    fun addProxy(proxyType: ProxyType, provider: ProxyProvider) {
-        // When there is a request of add with proxy type or provider as none
-        // then remove all the proxies.
-        if (proxyType == ProxyType.NONE || provider == ProxyProvider.NONE) {
-            removeAllProxies()
-            return
-        }
-
-        if (provider == ProxyProvider.ORBOT) {
-            setProxy(proxyType, provider)
-            return
-        }
-
-        // If add proxy request is custom proxy (either http/socks5), check if the other
-        // proxy is already set. if yes, then make the proxy type as HTTP_SOCKS5.
-        val currentProxyType = ProxyType.of(getProxyType())
-        if (proxyType.isProxyTypeHttp()) {
-            if (currentProxyType.isProxyTypeSocks5()) {
-                setProxy(ProxyType.HTTP_SOCKS5, provider)
-                return
-            }
-            setProxy(ProxyType.HTTP, provider)
-            return
-        }
-
-        if (proxyType.isProxyTypeSocks5()) {
-            if (currentProxyType.isProxyTypeHttp()) {
-                setProxy(ProxyType.HTTP_SOCKS5, provider)
-                return
-            }
-            setProxy(ProxyType.SOCKS5, provider)
-            return
-        }
-    }
-
-    fun removeAllProxies() {
-        removeOrbot()
-        persistentState.proxyProvider = ProxyProvider.NONE.name
-        persistentState.proxyType = ProxyType.NONE.name
-    }
-
-    private fun removeOrbot() {
-        OrbotHelper.selectedProxyType = ProxyType.NONE.name
-    }
-
-    fun removeProxy(removeType: ProxyType, removeProvider: ProxyProvider) {
-        val currentProxyType = ProxyType.of(getProxyType())
-
-        if (currentProxyType.isProxyTypeHttpSocks5()) {
-            if (removeType.isProxyTypeHttp()) {
-                setProxy(ProxyType.SOCKS5, removeProvider)
-                return
-            } else if (removeType.isProxyTypeSocks5()) {
-                setProxy(ProxyType.HTTP, removeProvider)
-                return
-            } else {
-                Log.w(LOG_TAG_VPN,
-                      "invalid remove proxy call, type: ${removeType.name}, provider: ${removeProvider.name}")
-            }
-        } else {
-            removeAllProxies()
-        }
-    }
-
-    fun getProxyType(): String {
-        return persistentState.proxyType
-    }
-
-    private fun setProxy(type: ProxyType, provider: ProxyProvider) {
-        persistentState.proxyProvider = provider.name
-        persistentState.proxyType = type.name
-    }
-
-    // Returns the proxymode to set in Tunnel.
-    // Settings.ProxyModeNone
-    // Settings.ProxyModeSOCKS5
-    // Settings.ProxyModeHTTPS
-    private fun getTunProxyMode(): TunProxyMode {
-        val type = persistentState.proxyType
-        val provider = persistentState.proxyProvider
-        if (DEBUG) Log.d(LOG_TAG_VPN, "selected proxy type: $type, with provider as $provider")
-
-        if (ProxyProvider.ORBOT.name == provider) {
-            return TunProxyMode.ORBOT
-        }
-
-        when (type) {
-            ProxyType.HTTP.name -> {
-                return TunProxyMode.HTTPS
-            }
-            ProxyType.SOCKS5.name -> {
-                return TunProxyMode.SOCKS5
-            }
-            ProxyType.HTTP_SOCKS5.name -> {
-                // FIXME: tunnel does not support both http and socks5 at once.
-                return TunProxyMode.SOCKS5
-            }
-        }
-        return TunProxyMode.NONE
-    }
-
-    fun isCustomHttpProxyEnabled(): Boolean {
-        val proxyProvider = ProxyProvider.getProxyProvider(persistentState.proxyProvider)
-        // return false if the proxy provider is not custom
-        if (!proxyProvider.isProxyProviderCustom()) return false
-
-        val proxyType = ProxyType.of(persistentState.proxyType)
-        return proxyType.isProxyTypeHttp() || proxyType.isProxyTypeHttpSocks5()
-    }
-
-    fun isCustomSocks5Enabled(): Boolean {
-        val proxyProvider = ProxyProvider.getProxyProvider(persistentState.proxyProvider)
-        // return false if the proxy provider is not custom
-        if (!proxyProvider.isProxyProviderCustom()) return false
-
-        val proxyType = ProxyType.of(persistentState.proxyType)
-        return proxyType.isProxyTypeSocks5() || proxyType.isProxyTypeHttpSocks5()
-    }
-
-    fun isOrbotProxyEnabled(): Boolean {
-        val proxyProvider = ProxyProvider.getProxyProvider(persistentState.proxyProvider)
-        return proxyProvider.isProxyProviderOrbot()
-    }
-
-    fun isProxyEnabled(): Boolean {
-        val proxyProvider = ProxyProvider.getProxyProvider(persistentState.proxyProvider)
-        if (proxyProvider.isProxyProviderNone()) return false
-
-        val proxyType = ProxyType.of(persistentState.proxyType)
-        return !proxyType.isProxyTypeNone()
-    }
-
     fun canEnableProxy(): Boolean {
         return !getBraveMode().isDnsMode() && !VpnController.isVpnLockdown()
     }
 
-    fun canEnableSocks5Proxy(): Boolean {
-        val proxyProvider = ProxyProvider.getProxyProvider(persistentState.proxyProvider)
-        return canEnableProxy() && (proxyProvider.isProxyProviderNone() || proxyProvider.isProxyProviderCustom())
-    }
-
-    fun canEnableHttpProxy(): Boolean {
-        val proxyProvider = ProxyProvider.getProxyProvider(persistentState.proxyProvider)
-        return canEnableProxy() && (proxyProvider.isProxyProviderNone() || proxyProvider.isProxyProviderCustom())
-    }
-
-    fun canEnableOrbotProxy(): Boolean {
-        val proxyProvider = ProxyProvider.getProxyProvider(persistentState.proxyProvider)
-        return canEnableProxy() && (proxyProvider.isProxyProviderNone() || proxyProvider.isProxyProviderOrbot())
-    }
-
     suspend fun getConnectedSocks5Proxy(): ProxyEndpoint? {
         return proxyEndpointRepository.getConnectedProxy()
-    }
-
-    suspend fun insertCustomHttpProxy(host: String, port: Int) {
-        persistentState.httpProxyHostAddress = host
-        persistentState.httpProxyPort = port
-    }
-
-    suspend fun insertCustomSocks5Proxy(proxyEndpoint: ProxyEndpoint) {
-        proxyEndpointRepository.clearAllData()
-        proxyEndpointRepository.insert(proxyEndpoint)
-        addProxy(ProxyType.SOCKS5, ProxyProvider.CUSTOM)
     }
 
     suspend fun insertOrbotProxy(proxyEndpoint: ProxyEndpoint) {

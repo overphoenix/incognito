@@ -86,10 +86,6 @@ class LocalBlocklistsBottomSheet(private val context: DnsConfigureFragment) :
     }
 
     private fun updateLocalBlocklistUi() {
-        if (Utilities.isPlayStoreFlavour()) {
-            return
-        }
-
         if (persistentState.blocklistEnabled) {
             enableBlocklistUi()
             return

@@ -127,12 +127,6 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
             View.GONE
         }
 
-        b.fhsProxyChip.visibility = if (appConfig.isProxyEnabled()) {
-            View.VISIBLE
-        } else {
-            View.GONE
-        }
-
         b.fhsThemeChip.text = getString(R.string.hsf_chip_appearance,
                                         themeNames[persistentState.theme])
     }
@@ -165,7 +159,6 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
         val colorFilter = PorterDuffColorFilter(
             ContextCompat.getColor(requireContext(), R.color.primaryText), PorterDuff.Mode.SRC_IN)
         b.fhsWhatsNewChip.chipIcon?.colorFilter = colorFilter
-        b.fhsProxyChip.chipIcon?.colorFilter = colorFilter
         b.fhsDnsConfigureChip.chipIcon?.colorFilter = colorFilter
         b.fhsDnsLogsChip.chipIcon?.colorFilter = colorFilter
         b.fhsNetworkLogsChip.chipIcon?.colorFilter = colorFilter
@@ -273,20 +266,6 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
 
         b.fhsNetworkLogsChip.setOnClickListener {
             openNetworkLogsScreen()
-        }
-
-        b.fhsProxyChip.setOnCloseIconClickListener {
-            b.fhsProxyChip.isEnabled = false
-            appConfig.removeAllProxies()
-            b.fhsProxyChip.text = getString(R.string.hsf_proxy_chip_remove_text)
-            syncDnsStatus()
-            delay(TimeUnit.SECONDS.toMillis(2), lifecycleScope) {
-                b.fhsProxyChip.visibility = View.GONE
-                b.fhsProxyChip.isEnabled = true
-                showToastUiCentered(requireContext(),
-                                    getString(R.string.hsf_proxy_chip_removed_toast),
-                                    Toast.LENGTH_SHORT)
-            }
         }
 
         b.fhsThemeChip.setOnClickListener {
@@ -919,26 +898,6 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
                 colorId = fetchTextColor(R.color.primaryLightColorText)
             } else if (appConfig.getBraveMode().isDnsMode()) {
                 statusId = R.string.status_protected
-            } else if (appConfig.isOrbotProxyEnabled() && isPrivateDnsActive()) {
-                statusId = R.string.status_protected_with_tor_private_dns
-                colorId = fetchTextColor(R.color.primaryLightColorText)
-            } else if (appConfig.isOrbotProxyEnabled()) {
-                statusId = R.string.status_protected_with_tor
-            } else if ((appConfig.isCustomSocks5Enabled() && appConfig.isCustomHttpProxyEnabled()) && isPrivateDnsActive()) { // SOCKS5 + Http + PrivateDns
-                statusId = R.string.status_protected_with_proxy_private_dns
-                colorId = fetchTextColor(R.color.primaryLightColorText)
-            } else if (appConfig.isCustomSocks5Enabled() && appConfig.isCustomHttpProxyEnabled()) {
-                statusId = R.string.status_protected_with_proxy
-            } else if (appConfig.isCustomSocks5Enabled() && isPrivateDnsActive()) {
-                statusId = R.string.status_protected_with_socks5_private_dns
-                colorId = fetchTextColor(R.color.primaryLightColorText)
-            } else if (appConfig.isCustomHttpProxyEnabled() && isPrivateDnsActive()) {
-                statusId = R.string.status_protected_with_http_private_dns
-                colorId = fetchTextColor(R.color.primaryLightColorText)
-            } else if (appConfig.isCustomHttpProxyEnabled()) {
-                statusId = R.string.status_protected_with_http
-            } else if (appConfig.isCustomSocks5Enabled()) {
-                statusId = R.string.status_protected_with_socks5
             } else if (isPrivateDnsActive()) {
                 statusId = R.string.status_protected_with_private_dns
                 colorId = fetchTextColor(R.color.primaryLightColorText)

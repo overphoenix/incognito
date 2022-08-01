@@ -40,7 +40,6 @@ import com.celzero.bravedns.util.LoggerConstants
 import com.celzero.bravedns.util.Themes
 import com.celzero.bravedns.util.Utilities
 import com.celzero.bravedns.util.Utilities.Companion.fetchColor
-import com.celzero.bravedns.util.Utilities.Companion.isPlayStoreFlavour
 import com.celzero.bravedns.util.Utilities.Companion.openPauseActivityAndFinish
 import com.celzero.bravedns.viewmodel.CustomDomainViewModel
 import kotlinx.coroutines.Dispatchers
@@ -92,11 +91,6 @@ class DnsConfigureFragment : Fragment(R.layout.fragment_dns_configure),
     }
 
     private fun updateLocalBlocklistUi() {
-        if (isPlayStoreFlavour()) {
-            b.dcLocalBlocklistRl.visibility = View.GONE
-            return
-        }
-
         if (persistentState.blocklistEnabled) {
             b.dcLocalBlocklistCount.text = getString(R.string.dc_local_block_enabled)
             b.dcLocalBlocklistDesc.text = getString(R.string.settings_local_blocklist_in_use,

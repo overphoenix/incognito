@@ -55,8 +55,6 @@ enum class FirewallRuleset(val id: String, val title: Int, val desc: Int, val ac
           R.string.firewall_rule_exempt_app_bypass_univ_desc, FirewallRuleset.allow),
     RULE9("Proxied", R.string.firewall_rule_exempt_dns_proxied,
           R.string.firewall_rule_exempt_dns_proxied_desc, FirewallRuleset.allow),
-    RULE9B("Orbot setup", R.string.firewall_rule_exempt_orbot_setup,
-           R.string.firewall_rule_exempt_orbot_setup_desc, FirewallRuleset.allow),
     RULE10("Http block", R.string.firewall_rule_block_http, R.string.firewall_rule_block_http_desc,
            FirewallRuleset.block);
 
@@ -85,7 +83,6 @@ enum class FirewallRuleset(val id: String, val title: Int, val desc: Int, val ac
                 RULE7.id -> RULE7
                 RULE8.id -> RULE8
                 RULE9.id -> RULE9
-                RULE9B.id -> RULE9B
                 RULE10.id -> RULE10
                 else -> null
             }
@@ -111,7 +108,6 @@ enum class FirewallRuleset(val id: String, val title: Int, val desc: Int, val ac
                 RULE7.id -> R.drawable.ic_prevent_dns_leaks
                 RULE8.id -> R.drawable.bs_firewall_home_screen
                 RULE9.id -> R.drawable.bs_dns_home_screen
-                RULE9B.id -> R.drawable.ic_orbot
                 RULE10.id -> R.drawable.ic_http
                 else -> R.drawable.bs_dns_home_screen
             }

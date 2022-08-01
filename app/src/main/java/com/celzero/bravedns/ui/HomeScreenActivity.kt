@@ -45,7 +45,6 @@ import com.celzero.bravedns.ui.HomeScreenActivity.GlobalVariable.DEBUG
 import com.celzero.bravedns.util.Constants
 import com.celzero.bravedns.util.Constants.Companion.INIT_TIME_MS
 import com.celzero.bravedns.util.Constants.Companion.LOCAL_BLOCKLIST_DOWNLOAD_FOLDER_NAME
-import com.celzero.bravedns.util.Constants.Companion.PKG_NAME_PLAY_STORE
 import com.celzero.bravedns.util.LoggerConstants.Companion.LOG_TAG_APP_UPDATE
 import com.celzero.bravedns.util.LoggerConstants.Companion.LOG_TAG_DOWNLOAD
 import com.celzero.bravedns.util.LoggerConstants.Companion.LOG_TAG_UI
@@ -53,7 +52,6 @@ import com.celzero.bravedns.util.RemoteFileTagUtil
 import com.celzero.bravedns.util.Themes.Companion.getCurrentTheme
 import com.celzero.bravedns.util.Utilities
 import com.celzero.bravedns.util.Utilities.Companion.getPackageMetadata
-import com.celzero.bravedns.util.Utilities.Companion.isPlayStoreFlavour
 import com.celzero.bravedns.util.Utilities.Companion.isWebsiteFlavour
 import com.celzero.bravedns.util.Utilities.Companion.localBlocklistDownloadBasePath
 import com.celzero.bravedns.util.Utilities.Companion.oldLocalBlocklistDownloadDir
@@ -256,27 +254,14 @@ class HomeScreenActivity : AppCompatActivity(R.layout.activity_home_screen) {
             isInteractive: AppUpdater.UserPresent = AppUpdater.UserPresent.NONINTERACTIVE) {
 
         // Check updates only for play store / website version. Not fDroid.
-        if (!isPlayStoreFlavour() && !isWebsiteFlavour()) {
+        if (!isWebsiteFlavour()) {
             if (DEBUG) Log.d(LOG_TAG_APP_UPDATE,
                              "Check for update: Not play or website- ${BuildConfig.FLAVOR}")
             return
         }
 
-        if (isGooglePlayServicesAvailable() && isPlayStoreFlavour()) {
-            appUpdateManager.checkForAppUpdate(isInteractive, this,
-                                               installStateUpdatedListener) // Might be play updater or web updater
-        } else {
-            get<NonStoreAppUpdater>().checkForAppUpdate(isInteractive, this,
-                                                        installStateUpdatedListener) // Always web updater
-        }
-    }
-
-    private fun isGooglePlayServicesAvailable(): Boolean {
-        // applicationInfo.enabled - When false, indicates that all components within
-        // this application are considered disabled, regardless of their individually set enabled status.
-        // TODO: prompt dialog to user that Playservice is disabled, so switch to update
-        // check for website
-        return Utilities.getApplicationInfo(this, PKG_NAME_PLAY_STORE)?.enabled ?: false
+        get<NonStoreAppUpdater>().checkForAppUpdate(isInteractive, this,
+                                                    installStateUpdatedListener) // Always web updater
     }
 
     private val installStateUpdatedListener = object : AppUpdater.InstallStateListener {

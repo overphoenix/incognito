@@ -147,12 +147,6 @@ class PersistentState(context: Context) : SimpleKrate(context), KoinComponent {
     // add all networks (say, both wifi / mobile) with internet capability to the vpn tunnel
     var useMultipleNetworks by booleanPref("add_all_networks_to_vpn", false)
 
-    // user selected proxy type (e.g., http, socks5)
-    var proxyType by stringPref("proxy_proxytype", AppConfig.ProxyType.NONE.name)
-
-    // user selected proxy provider, as of now two providers (custom, orbot)
-    var proxyProvider by stringPref("proxy_proxyprovider", AppConfig.ProxyProvider.NONE.name)
-
     // total dnscrypt server currently connected to
     private var _dnsCryptRelayCount by intPref("dnscrypt_relay", 0)
 
@@ -203,7 +197,6 @@ class PersistentState(context: Context) : SimpleKrate(context), KoinComponent {
     // universal firewall settings to block all metered connections
     var blockMeteredConnections by booleanPref("block_metered_connections", false)
 
-    var orbotConnectionStatus: MutableLiveData<Boolean> = MutableLiveData()
     var median: MutableLiveData<Long> = MutableLiveData()
     var dnsBlockedCountLiveData: MutableLiveData<Long> = MutableLiveData()
     var dnsRequestsCountLiveData: MutableLiveData<Long> = MutableLiveData()

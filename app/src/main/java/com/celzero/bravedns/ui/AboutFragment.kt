@@ -52,7 +52,6 @@ import com.celzero.bravedns.util.LoggerConstants.Companion.LOG_TAG_UI
 import com.celzero.bravedns.util.Utilities
 import com.celzero.bravedns.util.Utilities.Companion.isAtleastR
 import com.celzero.bravedns.util.Utilities.Companion.isFdroidFlavour
-import com.celzero.bravedns.util.Utilities.Companion.isPlayStoreFlavour
 import com.celzero.bravedns.util.Utilities.Companion.openVpnProfile
 import com.celzero.bravedns.util.Utilities.Companion.sendEmailIntent
 import com.celzero.bravedns.util.Utilities.Companion.showToastUiCentered
@@ -121,8 +120,6 @@ class AboutFragment : Fragment(R.layout.fragment_about), View.OnClickListener, K
 
     private fun getDownloadSource(): String {
         if (isFdroidFlavour()) return getString(R.string.build__flavor_fdroid)
-
-        if (isPlayStoreFlavour()) return getString(R.string.build__flavor_play_store)
 
         return getString(R.string.build__flavor_website)
     }
