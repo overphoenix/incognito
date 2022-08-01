@@ -23,10 +23,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.AppConnectionAdapter
 import com.celzero.bravedns.automaton.IpRulesManager
-import com.celzero.bravedns.databinding.BottomSheetAppConnectionsBinding
+import recalibrated.systems.databinding.BottomSheetAppConnectionsBinding
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.util.Themes.Companion.getBottomsheetCurrentTheme
 import com.celzero.bravedns.util.Utilities

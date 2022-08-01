@@ -26,11 +26,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.IpRulesManager
 import com.celzero.bravedns.automaton.IpRulesManager.UID_EVERYBODY
 import com.celzero.bravedns.database.CustomIp
-import com.celzero.bravedns.databinding.ListItemCustomIpBinding
+import recalibrated.systems.databinding.ListItemCustomIpBinding
 import com.celzero.bravedns.util.Utilities.Companion.fetchToggleBtnColors
 import com.celzero.bravedns.util.Utilities.Companion.getCountryCode
 import com.celzero.bravedns.util.Utilities.Companion.getFlag

@@ -25,10 +25,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager
 import com.celzero.bravedns.database.AppInfo
-import com.celzero.bravedns.databinding.ExcludedAppListItemBinding
+import recalibrated.systems.databinding.ExcludedAppListItemBinding
 import com.celzero.bravedns.glide.GlideApp
 import com.celzero.bravedns.util.Utilities.Companion.getDefaultIcon
 import com.celzero.bravedns.util.Utilities.Companion.getIcon

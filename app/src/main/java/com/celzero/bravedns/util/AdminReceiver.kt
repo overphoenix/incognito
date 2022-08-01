@@ -19,7 +19,7 @@ import android.app.admin.DeviceAdminReceiver
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 
 class AdminReceiver : DeviceAdminReceiver() {
 

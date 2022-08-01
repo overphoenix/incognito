@@ -37,10 +37,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
-import com.celzero.bravedns.databinding.DialogViewLogsBinding
-import com.celzero.bravedns.databinding.DialogWhatsnewBinding
-import com.celzero.bravedns.databinding.FragmentAboutBinding
+import recalibrated.systems.R
+import recalibrated.systems.databinding.DialogViewLogsBinding
+import recalibrated.systems.databinding.DialogWhatsnewBinding
+import recalibrated.systems.databinding.FragmentAboutBinding
 import com.celzero.bravedns.scheduler.BugReportZipper.FILE_PROVIDER_NAME
 import com.celzero.bravedns.scheduler.BugReportZipper.getZipFilePath
 import com.celzero.bravedns.scheduler.WorkScheduler

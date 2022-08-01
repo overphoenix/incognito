@@ -27,7 +27,7 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.database.ProxyEndpoint
 import com.celzero.bravedns.receiver.NotificationActionReceiver

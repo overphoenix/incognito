@@ -39,7 +39,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.DomainRulesManager
 import com.celzero.bravedns.automaton.FirewallManager
 import com.celzero.bravedns.automaton.FirewallManager.NOTIF_CHANNEL_ID_FIREWALL_ALERTS
@@ -1628,7 +1628,7 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Blocker
 
     private suspend fun establishVpn(): ParcelFileDescriptor? {
         try {
-            var builder: VpnService.Builder = newBuilder().setSession("RethinkDNS").setMtu(
+            var builder: VpnService.Builder = newBuilder().setSession("Incognito").setMtu(
                 VPN_INTERFACE_MTU)
 
             builder = addAddress(builder)

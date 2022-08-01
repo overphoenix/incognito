@@ -42,12 +42,12 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.database.AppInfo
 import com.celzero.bravedns.database.RethinkDnsEndpoint
-import com.celzero.bravedns.databinding.FragmentHomeScreenBinding
+import recalibrated.systems.databinding.FragmentHomeScreenBinding
 import com.celzero.bravedns.service.BraveVPNService
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.service.VpnController

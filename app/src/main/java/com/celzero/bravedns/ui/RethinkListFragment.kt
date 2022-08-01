@@ -26,12 +26,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.RethinkEndpointAdapter
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.database.RethinkDnsEndpoint
-import com.celzero.bravedns.databinding.DialogSetRethinkBinding
-import com.celzero.bravedns.databinding.FragmentDohListBinding
+import recalibrated.systems.databinding.DialogSetRethinkBinding
+import recalibrated.systems.databinding.FragmentDohListBinding
 import com.celzero.bravedns.ui.ConfigureRethinkBasicActivity.Companion.RETHINK_BLOCKLIST_TYPE
 import com.celzero.bravedns.ui.ConfigureRethinkBasicActivity.Companion.UID
 import com.celzero.bravedns.util.Constants

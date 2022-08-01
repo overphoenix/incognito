@@ -20,7 +20,7 @@ import android.content.Context
 import android.os.SystemClock
 import android.util.Log
 import androidx.collection.LongSparseArray
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager
 import com.celzero.bravedns.automaton.FirewallManager.ipDomainLookup
 import com.celzero.bravedns.data.AppConfig

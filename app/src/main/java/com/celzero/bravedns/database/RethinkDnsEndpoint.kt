@@ -17,7 +17,7 @@ package com.celzero.bravedns.database
 
 import android.content.Context
 import androidx.room.Entity
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.util.Constants
 
 @Entity(primaryKeys = ["name", "url", "uid"], tableName = "RethinkDnsEndpoint")

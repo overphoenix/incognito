@@ -19,7 +19,7 @@ package com.celzero.bravedns.database
 import android.content.Context
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager
 
 @Entity(tableName = "DNSProxyEndpoint")

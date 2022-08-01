@@ -21,7 +21,7 @@ import android.content.Context
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.celzero.bravedns.BuildConfig
+import recalibrated.systems.BuildConfig
 import com.celzero.bravedns.util.Constants
 import com.celzero.bravedns.util.LoggerConstants.Companion.LOG_TAG_SCHEDULER
 import com.celzero.bravedns.util.Utilities

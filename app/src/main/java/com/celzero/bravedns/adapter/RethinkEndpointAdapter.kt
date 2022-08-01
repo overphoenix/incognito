@@ -30,10 +30,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.database.RethinkDnsEndpoint
-import com.celzero.bravedns.databinding.RethinkEndpointListItemBinding
+import recalibrated.systems.databinding.RethinkEndpointListItemBinding
 import com.celzero.bravedns.ui.ConfigureRethinkBasicActivity
 import com.celzero.bravedns.ui.HomeScreenActivity.GlobalVariable.DEBUG
 import com.celzero.bravedns.ui.RethinkBlocklistFragment

@@ -26,11 +26,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.DnsQueryAdapter
 import com.celzero.bravedns.database.DnsLogRepository
-import com.celzero.bravedns.databinding.ActivityQueryDetailBinding
-import com.celzero.bravedns.databinding.QueryListScrollListBinding
+import recalibrated.systems.databinding.ActivityQueryDetailBinding
+import recalibrated.systems.databinding.QueryListScrollListBinding
 import com.celzero.bravedns.glide.GlideApp
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.util.CustomLinearLayoutManager

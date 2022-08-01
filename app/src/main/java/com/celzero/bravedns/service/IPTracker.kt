@@ -17,7 +17,7 @@ package com.celzero.bravedns.service
 
 import android.content.Context
 import android.util.Log
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager
 import com.celzero.bravedns.data.IPDetails
 import com.celzero.bravedns.database.ConnectionTracker

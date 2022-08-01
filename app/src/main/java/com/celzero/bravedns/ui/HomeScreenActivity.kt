@@ -28,14 +28,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.BuildConfig
+import recalibrated.systems.BuildConfig
 import com.celzero.bravedns.NonStoreAppUpdater
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.IpRulesManager
 import com.celzero.bravedns.automaton.RethinkBlocklistManager
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.database.RefreshDatabase
-import com.celzero.bravedns.databinding.ActivityHomeScreenBinding
+import recalibrated.systems.databinding.ActivityHomeScreenBinding
 import com.celzero.bravedns.download.AppDownloadManager
 import com.celzero.bravedns.service.AppUpdater
 import com.celzero.bravedns.service.BraveVPNService
@@ -98,10 +98,6 @@ class HomeScreenActivity : AppCompatActivity(R.layout.activity_home_screen) {
         setTheme(getCurrentTheme(isDarkThemeOn(), persistentState.theme))
         super.onCreate(savedInstanceState)
 
-        if (persistentState.firstTimeLaunch) {
-            launchOnboardActivity()
-            return
-        }
         updateNewVersion()
 
         if (savedInstanceState == null) {
@@ -212,13 +208,6 @@ class HomeScreenActivity : AppCompatActivity(R.layout.activity_home_screen) {
             }
             fileOrDirectory.delete()
         }
-    }
-
-    private fun launchOnboardActivity() {
-        val intent = Intent(this, WelcomeActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
-        startActivity(intent)
-        finish()
     }
 
     private fun updateNewVersion() {

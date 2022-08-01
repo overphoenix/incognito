@@ -22,8 +22,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
-import com.celzero.bravedns.R
-import com.celzero.bravedns.databinding.SpinnerItemFirewallStatusBinding
+import recalibrated.systems.R
+import recalibrated.systems.databinding.SpinnerItemFirewallStatusBinding
 
 class FirewallStatusSpinnerAdapter(val context: Context, private val spinnerLabels: Array<String>) :
         BaseAdapter() {

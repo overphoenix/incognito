@@ -27,14 +27,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.DnsCryptEndpointAdapter
 import com.celzero.bravedns.adapter.DnsCryptRelayEndpointAdapter
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.database.DnsCryptEndpoint
 import com.celzero.bravedns.database.DnsCryptRelayEndpoint
-import com.celzero.bravedns.databinding.DialogSetDnsCryptBinding
-import com.celzero.bravedns.databinding.FragmentDnsCryptListBinding
+import recalibrated.systems.databinding.DialogSetDnsCryptBinding
+import recalibrated.systems.databinding.FragmentDnsCryptListBinding
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.util.Themes
 import com.celzero.bravedns.viewmodel.DnsCryptEndpointViewModel

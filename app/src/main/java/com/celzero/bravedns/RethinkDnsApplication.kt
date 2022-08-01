@@ -10,6 +10,7 @@ import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import recalibrated.systems.BuildConfig
 
 /*
  * Copyright 2020 RethinkDNS and its authors

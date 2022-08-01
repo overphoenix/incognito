@@ -34,14 +34,14 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.FirewallStatusSpinnerAdapter
 import com.celzero.bravedns.automaton.FirewallManager
 import com.celzero.bravedns.automaton.IpRulesManager
 import com.celzero.bravedns.data.ConnectionRules
 import com.celzero.bravedns.database.ConnectionTracker
-import com.celzero.bravedns.databinding.BottomSheetConnTrackBinding
-import com.celzero.bravedns.databinding.DialogInfoRulesLayoutBinding
+import recalibrated.systems.databinding.BottomSheetConnTrackBinding
+import recalibrated.systems.databinding.DialogInfoRulesLayoutBinding
 import com.celzero.bravedns.service.FirewallRuleset
 import com.celzero.bravedns.service.FirewallRuleset.Companion.getFirewallRule
 import com.celzero.bravedns.service.PersistentState

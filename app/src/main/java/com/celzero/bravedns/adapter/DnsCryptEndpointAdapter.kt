@@ -28,10 +28,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.database.DnsCryptEndpoint
-import com.celzero.bravedns.databinding.DnsCryptEndpointListItemBinding
+import recalibrated.systems.databinding.DnsCryptEndpointListItemBinding
 import com.celzero.bravedns.util.Utilities
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

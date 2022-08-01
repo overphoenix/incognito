@@ -22,7 +22,7 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.databinding.DialogDnscryptRelaysBinding
+import recalibrated.systems.databinding.DialogDnscryptRelaysBinding
 
 class DnsCryptRelaysDialog(private var activity: Activity,
                            internal var adapter: RecyclerView.Adapter<*>, themeID: Int) :

@@ -24,10 +24,10 @@ import androidx.core.net.toUri
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.RethinkBlocklistManager
 import com.celzero.bravedns.database.RethinkLocalFileTag
-import com.celzero.bravedns.databinding.ListItemRethinkBlocklistAdvBinding
+import recalibrated.systems.databinding.ListItemRethinkBlocklistAdvBinding
 import com.celzero.bravedns.ui.RethinkBlocklistFragment.Companion.selectedFileTags
 import com.celzero.bravedns.util.Utilities.Companion.fetchColor
 import kotlinx.coroutines.CoroutineScope

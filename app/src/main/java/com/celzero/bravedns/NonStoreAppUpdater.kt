@@ -32,6 +32,7 @@ import okhttp3.Request
 import okhttp3.Response
 import org.json.JSONObject
 import java.io.IOException
+import recalibrated.systems.BuildConfig
 
 class NonStoreAppUpdater(private val baseUrl: String,
                          private val persistentState: PersistentState) : AppUpdater {

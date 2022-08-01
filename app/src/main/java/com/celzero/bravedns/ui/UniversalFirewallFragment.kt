@@ -27,10 +27,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.data.AppConfig
-import com.celzero.bravedns.databinding.FragmentUniversalFirewallBinding
-import com.celzero.bravedns.databinding.UniversalFragementContainerBinding
+import recalibrated.systems.databinding.FragmentUniversalFirewallBinding
+import recalibrated.systems.databinding.UniversalFragementContainerBinding
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.service.VpnController
 import com.celzero.bravedns.ui.HomeScreenActivity.GlobalVariable.DEBUG

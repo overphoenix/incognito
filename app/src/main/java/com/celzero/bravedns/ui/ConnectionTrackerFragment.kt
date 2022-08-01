@@ -26,10 +26,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.ConnectionTrackerAdapter
 import com.celzero.bravedns.database.ConnectionTrackerRepository
-import com.celzero.bravedns.databinding.ActivityConnectionTrackerBinding
+import recalibrated.systems.databinding.ActivityConnectionTrackerBinding
 import com.celzero.bravedns.service.FirewallRuleset
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.util.CustomLinearLayoutManager

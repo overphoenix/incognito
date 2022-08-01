@@ -21,9 +21,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.RethinkBlocklistManager
-import com.celzero.bravedns.databinding.ListItemRethinkBlocklistSimpleBinding
+import recalibrated.systems.databinding.ListItemRethinkBlocklistSimpleBinding
 import com.celzero.bravedns.ui.RethinkBlocklistFragment
 import com.celzero.bravedns.ui.RethinkBlocklistFragment.Companion.selectedFileTags
 import com.celzero.bravedns.util.Utilities

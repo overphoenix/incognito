@@ -31,11 +31,11 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.CustomDomainAdapter
 import com.celzero.bravedns.automaton.DomainRulesManager
-import com.celzero.bravedns.databinding.DialogAddCustomDomainBinding
-import com.celzero.bravedns.databinding.DialogCustomDomainBinding
+import recalibrated.systems.databinding.DialogAddCustomDomainBinding
+import recalibrated.systems.databinding.DialogCustomDomainBinding
 import com.celzero.bravedns.util.Utilities
 import com.celzero.bravedns.util.Utilities.Companion.removeLeadingAndTrailingDots
 import com.celzero.bravedns.viewmodel.CustomDomainViewModel

@@ -33,9 +33,9 @@ import com.bumptech.glide.request.target.CustomViewTarget
 import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory
 import com.bumptech.glide.request.transition.Transition
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.database.DnsLog
-import com.celzero.bravedns.databinding.TransactionRowBinding
+import recalibrated.systems.databinding.TransactionRowBinding
 import com.celzero.bravedns.glide.GlideApp
 import com.celzero.bravedns.ui.DnsBlocklistBottomSheetFragment
 import com.celzero.bravedns.ui.HomeScreenActivity.GlobalVariable.DEBUG

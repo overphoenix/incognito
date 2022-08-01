@@ -31,14 +31,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.RethinkLocalAdvancedViewAdapter
 import com.celzero.bravedns.adapter.RethinkRemoteAdvancedViewAdapter
 import com.celzero.bravedns.adapter.RethinkSimpleViewAdapter
 import com.celzero.bravedns.automaton.RethinkBlocklistManager
 import com.celzero.bravedns.customdownloader.LocalBlocklistDownloader
 import com.celzero.bravedns.data.FileTag
-import com.celzero.bravedns.databinding.FragmentRethinkBlocklistBinding
+import recalibrated.systems.databinding.FragmentRethinkBlocklistBinding
 import com.celzero.bravedns.download.AppDownloadManager
 import com.celzero.bravedns.download.DownloadConstants
 import com.celzero.bravedns.scheduler.WorkScheduler

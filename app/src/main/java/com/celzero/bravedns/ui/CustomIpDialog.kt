@@ -29,11 +29,11 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.CustomIpAdapter
 import com.celzero.bravedns.automaton.IpRulesManager
-import com.celzero.bravedns.databinding.DialogAddCustomIpBinding
-import com.celzero.bravedns.databinding.DialogCustomIpBinding
+import recalibrated.systems.databinding.DialogAddCustomIpBinding
+import recalibrated.systems.databinding.DialogCustomIpBinding
 import com.celzero.bravedns.util.Utilities
 import com.celzero.bravedns.viewmodel.CustomIpViewModel
 import inet.ipaddr.IPAddressString

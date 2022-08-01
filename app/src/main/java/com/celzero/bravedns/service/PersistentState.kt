@@ -17,7 +17,7 @@ package com.celzero.bravedns.service
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.util.Constants.Companion.INIT_TIME_MS
 import com.celzero.bravedns.util.Constants.Companion.INVALID_PORT

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.celzero.bravedns">
+    package="recalibrated.systems">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -19,7 +19,7 @@
         android:protectionLevel="signature" />
 
     <application
-        android:name=".RethinkDnsApplication"
+        android:name=".IncognitoApplication"
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -32,10 +32,10 @@
             android:value="true" />
 
         <activity
-            android:name=".ui.FirewallActivity"
+            android:name="com.celzero.bravedns.ui.FirewallActivity"
             android:finishOnTaskLaunch="true" />
         <activity
-            android:name=".ui.HomeScreenActivity"
+            android:name="com.celzero.bravedns.ui.HomeScreenActivity"
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
@@ -44,33 +44,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.DnsDetailActivity"
+            android:name="com.celzero.bravedns.ui.DnsDetailActivity"
             android:finishOnTaskLaunch="true" />
         <activity
-            android:name=".ui.WelcomeActivity"
-            android:finishOnTaskLaunch="true"
-            android:noHistory="true" />
-        <activity
-            android:name=".ui.AppInfoActivity"
+            android:name="com.celzero.bravedns.ui.AppInfoActivity"
             android:finishOnTaskLaunch="true" />
         <activity
-            android:name=".ui.PauseActivity"
+            android:name="com.celzero.bravedns.ui.PauseActivity"
             android:launchMode="singleInstance" />
         <activity
-            android:name=".ui.DnsListActivity"
+            android:name="com.celzero.bravedns.ui.DnsListActivity"
             android:finishOnTaskLaunch="true" />
         <activity
-            android:name=".ui.ConfigureRethinkBasicActivity"
+            android:name="com.celzero.bravedns.ui.ConfigureRethinkBasicActivity"
             android:finishOnTaskLaunch="true" />
         <activity
-            android:name=".ui.NotificationHandlerDialog"
+            android:name="com.celzero.bravedns.ui.NotificationHandlerDialog"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:taskAffinity=""
             android:theme="@style/AppThemeDialog" />
 
         <receiver
-            android:name=".receiver.BraveAutoStartReceiver"
+            android:name="com.celzero.bravedns.receiver.BraveAutoStartReceiver"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter android:priority="999">
@@ -79,11 +75,11 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".receiver.NotificationActionReceiver"
+            android:name="com.celzero.bravedns.receiver.NotificationActionReceiver"
             android:label="@string/app_name" />
 
         <service
-            android:name=".util.BackgroundAccessibilityService"
+            android:name="com.celzero.bravedns.util.BackgroundAccessibilityService"
             android:exported="true"
             android:label="@string/accessibility_service_label"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
@@ -96,7 +92,7 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
         <service
-            android:name=".service.BraveVPNService"
+            android:name="com.celzero.bravedns.service.BraveVPNService"
             android:exported="true"
             android:permission="android.permission.BIND_VPN_SERVICE"
             android:stopWithTask="false">
@@ -105,7 +101,7 @@
             </intent-filter>
         </service>
         <service
-            android:name=".service.BraveTileService"
+            android:name="com.celzero.bravedns.service.BraveTileService"
             android:exported="true"
             android:icon="@drawable/shield_green"
             android:label="@string/app_name"
@@ -121,7 +117,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.celzero.bravedns.provider"
+            android:authorities="recalibrated.systems.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

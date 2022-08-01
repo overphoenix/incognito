@@ -34,11 +34,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager
 import com.celzero.bravedns.automaton.FirewallManager.updateFirewallStatus
 import com.celzero.bravedns.database.AppInfo
-import com.celzero.bravedns.databinding.ListItemFirewallAppBinding
+import recalibrated.systems.databinding.ListItemFirewallAppBinding
 import com.celzero.bravedns.glide.GlideApp
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.ui.AppInfoActivity

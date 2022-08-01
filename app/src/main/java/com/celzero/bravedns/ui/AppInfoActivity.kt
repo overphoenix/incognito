@@ -30,7 +30,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.AppConnectionAdapter
 import com.celzero.bravedns.adapter.AppIpRulesAdapter
 import com.celzero.bravedns.automaton.FirewallManager
@@ -39,7 +39,7 @@ import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.database.AppInfo
 import com.celzero.bravedns.database.ConnectionTrackerRepository
 import com.celzero.bravedns.database.RethinkDnsEndpoint
-import com.celzero.bravedns.databinding.ActivityAppDetailsBinding
+import recalibrated.systems.databinding.ActivityAppDetailsBinding
 import com.celzero.bravedns.glide.GlideApp
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.service.VpnController

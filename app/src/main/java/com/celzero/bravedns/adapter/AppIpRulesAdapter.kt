@@ -24,10 +24,10 @@ import androidx.core.content.ContextCompat
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.IpRulesManager
 import com.celzero.bravedns.database.CustomIp
-import com.celzero.bravedns.databinding.ListItemAppIpRulesBinding
+import recalibrated.systems.databinding.ListItemAppIpRulesBinding
 import com.celzero.bravedns.ui.AppConnectionBottomSheet
 import com.celzero.bravedns.util.LoggerConstants
 import com.celzero.bravedns.util.Utilities.Companion.fetchColor

@@ -27,10 +27,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager
 import com.celzero.bravedns.database.ConnectionTracker
-import com.celzero.bravedns.databinding.ConnectionTransactionRowBinding
+import recalibrated.systems.databinding.ConnectionTransactionRowBinding
 import com.celzero.bravedns.glide.GlideApp
 import com.celzero.bravedns.service.FirewallRuleset
 import com.celzero.bravedns.ui.ConnTrackerBottomSheetFragment

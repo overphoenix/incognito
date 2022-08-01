@@ -21,7 +21,7 @@ import android.content.res.Resources
 import android.os.ParcelFileDescriptor
 import android.util.Log
 import android.widget.Toast
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.data.AppConfig.Companion.dnscryptRelaysToRemove
 import com.celzero.bravedns.data.AppConfig.TunnelOptions

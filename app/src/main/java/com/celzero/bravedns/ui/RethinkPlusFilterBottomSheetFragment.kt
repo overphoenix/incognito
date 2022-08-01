@@ -24,9 +24,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import androidx.core.content.ContextCompat
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.data.FileTag
-import com.celzero.bravedns.databinding.BottomSheetRethinkPlusFilterBinding
+import recalibrated.systems.databinding.BottomSheetRethinkPlusFilterBinding
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.util.Themes
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

@@ -26,12 +26,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.DohEndpointAdapter
 import com.celzero.bravedns.data.AppConfig
 import com.celzero.bravedns.database.DoHEndpoint
-import com.celzero.bravedns.databinding.DialogSetCustomDohBinding
-import com.celzero.bravedns.databinding.FragmentDohListBinding
+import recalibrated.systems.databinding.DialogSetCustomDohBinding
+import recalibrated.systems.databinding.FragmentDohListBinding
 import com.celzero.bravedns.viewmodel.DoHEndpointViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

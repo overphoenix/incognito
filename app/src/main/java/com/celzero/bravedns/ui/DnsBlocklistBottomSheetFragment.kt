@@ -40,12 +40,12 @@ import com.bumptech.glide.request.target.CustomViewTarget
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory
 import com.bumptech.glide.request.transition.Transition
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.DomainRulesManager
 import com.celzero.bravedns.database.DnsLog
-import com.celzero.bravedns.databinding.BottomSheetDnsLogBinding
-import com.celzero.bravedns.databinding.DialogInfoRulesLayoutBinding
-import com.celzero.bravedns.databinding.DialogIpDetailsLayoutBinding
+import recalibrated.systems.databinding.BottomSheetDnsLogBinding
+import recalibrated.systems.databinding.DialogInfoRulesLayoutBinding
+import recalibrated.systems.databinding.DialogIpDetailsLayoutBinding
 import com.celzero.bravedns.glide.FavIconDownloader
 import com.celzero.bravedns.glide.GlideApp
 import com.celzero.bravedns.service.PersistentState

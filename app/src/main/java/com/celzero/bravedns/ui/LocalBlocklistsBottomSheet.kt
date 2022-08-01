@@ -28,8 +28,8 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
-import com.celzero.bravedns.R
-import com.celzero.bravedns.databinding.BottomSheetLocalBlocklistsBinding
+import recalibrated.systems.R
+import recalibrated.systems.databinding.BottomSheetLocalBlocklistsBinding
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.util.Constants
 import com.celzero.bravedns.util.Constants.Companion.RETHINK_SEARCH_URL

@@ -27,9 +27,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.data.AppConfig
-import com.celzero.bravedns.databinding.FragmentDnsConfigureBinding
+import recalibrated.systems.databinding.FragmentDnsConfigureBinding
 import com.celzero.bravedns.scheduler.WorkScheduler
 import com.celzero.bravedns.scheduler.WorkScheduler.Companion.BLOCKLIST_UPDATE_CHECK_JOB_TAG
 import com.celzero.bravedns.service.BraveVPNService

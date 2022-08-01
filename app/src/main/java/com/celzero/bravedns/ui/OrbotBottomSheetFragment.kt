@@ -32,12 +32,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.lifecycleScope
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.animation.Rotate3dAnimation
 import com.celzero.bravedns.automaton.FirewallManager
 import com.celzero.bravedns.data.AppConfig
-import com.celzero.bravedns.databinding.BottomSheetOrbotBinding
-import com.celzero.bravedns.databinding.DialogInfoRulesLayoutBinding
+import recalibrated.systems.databinding.BottomSheetOrbotBinding
+import recalibrated.systems.databinding.DialogInfoRulesLayoutBinding
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.service.VpnController
 import com.celzero.bravedns.util.OrbotHelper

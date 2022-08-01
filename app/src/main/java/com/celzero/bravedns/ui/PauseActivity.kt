@@ -25,9 +25,9 @@ import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager
-import com.celzero.bravedns.databinding.ActivityPauseBinding
+import recalibrated.systems.databinding.ActivityPauseBinding
 import com.celzero.bravedns.service.BraveVPNService
 import com.celzero.bravedns.service.PauseTimer.PAUSE_VPN_EXTRA_MILLIS
 import com.celzero.bravedns.service.PersistentState

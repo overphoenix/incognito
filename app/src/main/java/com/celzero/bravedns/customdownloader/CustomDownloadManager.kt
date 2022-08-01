@@ -24,7 +24,7 @@ import android.net.VpnService
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.customdownloader.ConnectivityHelper.downloadIds
 import com.celzero.bravedns.customdownloader.RetrofitManager.Companion.getBlocklistBaseBuilder
 import com.celzero.bravedns.ui.HomeScreenActivity

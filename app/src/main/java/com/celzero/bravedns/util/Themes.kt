@@ -15,7 +15,7 @@
  */
 package com.celzero.bravedns.util
 
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 
 // Application themes enum
 enum class Themes(val id: Int) {

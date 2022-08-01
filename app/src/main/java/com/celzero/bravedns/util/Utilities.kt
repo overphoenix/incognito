@@ -47,8 +47,8 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.getSystemService
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.LifecycleCoroutineScope
-import com.celzero.bravedns.BuildConfig
-import com.celzero.bravedns.R
+import recalibrated.systems.BuildConfig
+import recalibrated.systems.R
 import com.celzero.bravedns.database.AppInfoRepository.Companion.NO_PACKAGE
 import com.celzero.bravedns.net.doh.CountryMap
 import com.celzero.bravedns.service.BraveVPNService

@@ -31,10 +31,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.adapter.FirewallAppListAdapter
 import com.celzero.bravedns.database.RefreshDatabase
-import com.celzero.bravedns.databinding.FragmentFirewallAppListBinding
+import recalibrated.systems.databinding.FragmentFirewallAppListBinding
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.service.VpnController
 import com.celzero.bravedns.util.CustomLinearLayoutManager

@@ -28,9 +28,9 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager
-import com.celzero.bravedns.databinding.DialogWhitelistAppsBinding
+import recalibrated.systems.databinding.DialogWhitelistAppsBinding
 import com.celzero.bravedns.util.Utilities
 import com.celzero.bravedns.viewmodel.AppListViewModel
 import com.google.android.material.chip.Chip

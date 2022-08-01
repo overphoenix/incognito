@@ -24,7 +24,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.celzero.bravedns.adapter.RethinkEndpointAdapter
-import com.celzero.bravedns.databinding.BottomSheetRethinkListBinding
+import recalibrated.systems.databinding.BottomSheetRethinkListBinding
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.util.Themes
 import com.celzero.bravedns.viewmodel.RethinkEndpointViewModel

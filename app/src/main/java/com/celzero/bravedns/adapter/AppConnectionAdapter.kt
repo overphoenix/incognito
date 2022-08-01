@@ -21,10 +21,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.IpRulesManager
 import com.celzero.bravedns.data.AppConnections
-import com.celzero.bravedns.databinding.ListItemAppConnDetailsBinding
+import recalibrated.systems.databinding.ListItemAppConnDetailsBinding
 import com.celzero.bravedns.ui.AppConnectionBottomSheet
 import com.celzero.bravedns.util.LoggerConstants
 

@@ -25,10 +25,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.DomainRulesManager
 import com.celzero.bravedns.database.CustomDomain
-import com.celzero.bravedns.databinding.ListItemCustomDomainBinding
+import recalibrated.systems.databinding.ListItemCustomDomainBinding
 import com.celzero.bravedns.util.Utilities
 import com.celzero.bravedns.util.Utilities.Companion.fetchToggleBtnColors
 import com.google.android.material.button.MaterialButton

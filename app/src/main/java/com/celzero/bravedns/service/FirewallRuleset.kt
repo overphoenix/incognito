@@ -16,7 +16,7 @@
 
 package com.celzero.bravedns.service
 
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 
 // TODO: Add label and description from strings.xml
 enum class FirewallRuleset(val id: String, val title: Int, val desc: Int, val act: Int) {

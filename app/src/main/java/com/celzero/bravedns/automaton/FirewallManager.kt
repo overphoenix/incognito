@@ -19,7 +19,7 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.celzero.bravedns.R
+import recalibrated.systems.R
 import com.celzero.bravedns.automaton.FirewallManager.GlobalVariable.appInfos
 import com.celzero.bravedns.automaton.FirewallManager.GlobalVariable.appInfosLiveData
 import com.celzero.bravedns.automaton.FirewallManager.GlobalVariable.foregroundUids
